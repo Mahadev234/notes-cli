@@ -1,0 +1,22 @@
+[project]
+name = "notes-cli"
+version = "0.1.0"
+description = "This is a note taking app"
+authors = [
+    {name = "Mahadev234",email = "tmsankaram@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "click (>=8.1.8,<9.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "notes"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+notes = "notes:cli" # entry point to the CLI
