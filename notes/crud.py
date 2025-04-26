@@ -9,13 +9,10 @@ from pathlib import Path
 @click.argument("title")
 @click.option("--content", default="", help="Content of the note")
 @click.option("--tags", default="", help="Tags for the note, separated by commas.")
-def create(title: str, content: str, tags: str):
+@click.pass_context
+def create(ctx: click.Context, title: str, content: str, tags: str):
     """Create a new note."""
-    notes_dir = Path(".notes")
-    # Create notes directory if it doesn't exist
-    if not notes_dir.exists():
-        os.makedirs(notes_dir)
-
+    notes_dir = ctx.obj["notes_dir"]
     note_name = f"{title}.txt"
     note_path = notes_dir / note_name
 
